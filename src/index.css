@@ -1,13 +1,114 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  -moz-osx-font-smoothing: grayscale; }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+html, body {
+  background-color: #2d5e96;
+  height: 100%;
+  overflow: hidden;
+  margin: 0; }
+
+#root {
+  height: 100%;
+  position: relative; }
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-150px, -75px);
+  display: flex; }
+  .loader svg {
+    width: 100px; }
+    .loader svg path {
+      fill: #fff; }
+  .loader:before, .loader:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -90px;
+    height: 5px;
+    border-radius: 20px; }
+  .loader:before {
+    z-index: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.07); }
+  .loader:after {
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: loader 2s ease-in-out; }
+
+.role {
+  display: flex;
+  height: calc(100% - 200px);
+  justify-content: center;
+  padding: 100px 0; }
+  .role__column {
+    background-color: #fff;
+    margin: 0 30px;
+    width: 40%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 4px; }
+    .role__column header, .role__column footer {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .role__column header {
+      height: 30px; }
+    .role__column footer {
+      height: 50px; }
+      .role__column footer button {
+        background-color: #2d5e96;
+        color: #fff;
+        border: none;
+        padding: 8px 50px;
+        border-radius: 3px;
+        box-shadow: 0 2px 10px rgba(45, 94, 150, 0.4);
+        cursor: pointer; }
+        .role__column footer button:hover {
+          background-color: #347c34; }
+    .role__column .list-hero {
+      height: calc(100% - 80px);
+      overflow: auto; }
+      .role__column .list-hero .row {
+        display: flex;
+        padding: 0 15px;
+        flex-wrap: wrap; }
+        .role__column .list-hero .row .col {
+          width: 50%;
+          cursor: pointer; }
+          .role__column .list-hero .row .col svg {
+            width: 90%;
+            opacity: 0.8;
+            padding: 5px;
+            border: 1px solid transparent; }
+            .role__column .list-hero .row .col svg:hover {
+              opacity: 1; }
+          .role__column .list-hero .row .col.selected svg {
+            border-color: rgba(45, 94, 150, 0.3);
+            opacity: 1; }
+    .role__column.disabled {
+      pointer-events: none;
+      opacity: 0.1; }
+
+@keyframes loader {
+  0% {
+    right: 100%; }
+  60% {
+    right: 25%; }
+  70% {
+    right: 20%; }
+  80% {
+    right: 15%; }
+  90% {
+    right: 10%; }
+  100% {
+    right: 0; } }
+
+/*# sourceMappingURL=index.css.map */
