@@ -10,7 +10,7 @@ export default function RoleA(p) {
             <Header {...p}/>
             <SelectHero
                 handlerSelectHero={p.handlerSelectHero}
-                role='roleA'
+                roleIs='roleA'
                 selected={p.selected}
             />
             <Footer {...p} selected={p.selected}/>

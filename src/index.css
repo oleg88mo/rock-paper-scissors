@@ -14,6 +14,9 @@ html, body {
   overflow: hidden;
   margin: 0; }
 
+button {
+  outline: none !important; }
+
 #root {
   height: 100%;
   position: relative; }
@@ -71,6 +74,11 @@ html, body {
         border-radius: 3px;
         box-shadow: 0 2px 10px rgba(45, 94, 150, 0.4);
         cursor: pointer; }
+        .role__column footer button.disabled {
+          background-color: #d5d5d5;
+          color: #bbb;
+          box-shadow: none;
+          pointer-events: none; }
         .role__column footer button:hover {
           background-color: #347c34; }
     .role__column .list-hero {
@@ -96,6 +104,203 @@ html, body {
     .role__column.disabled {
       pointer-events: none;
       opacity: 0.1; }
+
+.play-game {
+  display: flex;
+  height: calc(100% - 200px);
+  justify-content: space-between;
+  padding: 100px 0;
+  flex-direction: column;
+  align-items: center; }
+  .play-game .cort {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    height: calc(100% - 150px); }
+    .play-game .cort .player-container, .play-game .cort .cort-container {
+      background-color: #fff;
+      margin: 0 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      padding: 20px; }
+    .play-game .cort .player-container {
+      width: 20%;
+      text-align: center; }
+      .play-game .cort .player-container > span {
+        display: block;
+        font-size: 17px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        pointer-events: none;
+        height: 22px; }
+      .play-game .cort .player-container button {
+        background-color: transparent;
+        width: 100%;
+        padding: 30px 0 0;
+        cursor: pointer;
+        margin-bottom: 25px;
+        border: 1px solid #e4e4e4;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        transition: background-color .2s ease-in-out; }
+        .play-game .cort .player-container button:hover {
+          background-color: #f9f8f8; }
+        .play-game .cort .player-container button svg {
+          height: 120px; }
+      .play-game .cort .player-container.disabled button {
+        background-color: #d5d5d5;
+        pointer-events: none;
+        opacity: .2; }
+    .play-game .cort .cort-container {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      position: relative; }
+      .play-game .cort .cort-container header {
+        text-align: center;
+        pointer-events: none; }
+        .play-game .cort .cort-container header span {
+          color: #2d5e96;
+          font-size: 60px;
+          line-height: 1;
+          display: inline-block;
+          margin: 0 20px; }
+          .play-game .cort .cort-container header span svg {
+            height: 45px;
+            margin: 0 15px; }
+        .play-game .cort .cort-container header span:nth-of-type(1) {
+          position: relative; }
+          .play-game .cort .cort-container header span:nth-of-type(1):after {
+            content: ':';
+            position: absolute;
+            right: -25px;
+            font-size: 40px;
+            top: 8px; }
+      .play-game .cort .cort-container main {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between; }
+        .play-game .cort .cort-container main .p-left span, .play-game .cort .cort-container main .p-right span {
+          display: inline-block;
+          pointer-events: none;
+          border: 1px solid #e4e4e4;
+          padding: 15px 19px 0; }
+          .play-game .cort .cort-container main .p-left span svg, .play-game .cort .cort-container main .p-right span svg {
+            height: 170px;
+            margin-bottom: -15px; }
+@keyframes slideOutRight {
+  from {
+    visibility: hidden;
+    transform: translate3d(-50%, 0, 0); }
+  to {
+    visibility: visible;
+    transform: translate3d(10%, 0, 0); } }
+        .play-game .cort .cort-container main .slideOutRight {
+          animation-name: slideOutRight; }
+@keyframes slideOutLeft {
+  from {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0); }
+  to {
+    visibility: visible;
+    transform: translate3d(-10%, 0, 0); } }
+        .play-game .cort .cort-container main .slideOutLeft {
+          animation-name: slideOutLeft; }
+        .play-game .cort .cort-container main .animated {
+          animation-duration: 1s;
+          animation-fill-mode: both; }
+        .play-game .cort .cort-container main .loader-container {
+          position: absolute;
+          top: 38%;
+          left: 50%;
+          z-index: 2;
+          transform: translate(-30px, 55px); }
+          .play-game .cort .cort-container main .loader-container .lds-spinner {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px; }
+            .play-game .cort .cort-container main .loader-container .lds-spinner div {
+              transform-origin: 32px 32px;
+              animation: lds-spinner 1.2s linear infinite; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:after {
+                content: " ";
+                display: block;
+                position: absolute;
+                top: 3px;
+                left: 29px;
+                width: 5px;
+                height: 14px;
+                border-radius: 20%;
+                background: #2d5e96; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(1) {
+                transform: rotate(0deg);
+                animation-delay: -1.1s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(2) {
+                transform: rotate(30deg);
+                animation-delay: -1s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(3) {
+                transform: rotate(60deg);
+                animation-delay: -0.9s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(4) {
+                transform: rotate(90deg);
+                animation-delay: -0.8s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(5) {
+                transform: rotate(120deg);
+                animation-delay: -0.7s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(6) {
+                transform: rotate(150deg);
+                animation-delay: -0.6s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(7) {
+                transform: rotate(180deg);
+                animation-delay: -0.5s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(8) {
+                transform: rotate(210deg);
+                animation-delay: -0.4s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(9) {
+                transform: rotate(240deg);
+                animation-delay: -0.3s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(10) {
+                transform: rotate(270deg);
+                animation-delay: -0.2s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(11) {
+                transform: rotate(300deg);
+                animation-delay: -0.1s; }
+              .play-game .cort .cort-container main .loader-container .lds-spinner div:nth-child(12) {
+                transform: rotate(330deg);
+                animation-delay: 0s; }
+@keyframes lds-spinner {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+        .play-game .cort .cort-container main .who-win {
+          position: absolute;
+          left: 50%;
+          top: 135px;
+          margin-left: -55px;
+          color: #2d5e96;
+          font-size: 24px; }
+      .play-game .cort .cort-container footer {
+        text-align: center; }
+        .play-game .cort .cort-container footer button {
+          background-color: #347c34;
+          color: #fff;
+          cursor: pointer;
+          padding: 8px 50px;
+          border: none;
+          border-radius: 4px;
+          font-size: 18px;
+          box-shadow: 0 2px 10px rgba(45, 94, 150, 0.4); }
+          .play-game .cort .cort-container footer button:hover {
+            background-color: #2d5e96; }
+          .play-game .cort .cort-container footer button.disabled {
+            background-color: #d5d5d5;
+            color: #bbb;
+            box-shadow: none;
+            pointer-events: none; }
 
 @keyframes loader {
   0% {

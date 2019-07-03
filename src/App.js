@@ -2,25 +2,28 @@ import React, {Component} from 'react';
 // components
 import Loader from './components/loader';
 import SelectedRole from './components/selectedRole';
+import PlayGame from './components/playGame';
 
 class App extends Component {
     state = {
-        loader: false,
+        loader: true,
         roleA: null,
         roleB: null,
         visibleRoleB: null,
+        renderBlock: null
     };
 
     async componentWillMount() {
-        await this.loaderProgress();
+        await this.loaderProgress(false, 'selectedRole');
     }
 
-    loaderProgress = () => {
+    loaderProgress = (val, block) => {
         let timerId = setInterval(() => {
+            this.setState({loader: true});
         }, 0);
 
         setTimeout(() => {
-            this.setState({loader: false});
+            this.setState({loader: val, renderBlock: block});
             clearInterval(timerId);
         }, 2100);
     };
@@ -33,22 +36,41 @@ class App extends Component {
         }
     };
 
-    handlerVisibleRoleB = () => this.setState({visibleRoleB: false});
+    handlerButtonClickA = () => this.setState({visibleRoleB: false});
+
+    handlerButtonClickB = () => this.loaderProgress(false, 'playGame');
+
+    handlerClearComponent = () => {
+        this.loaderProgress(false, 'selectedRole');
+        this.setState({roleA: null, roleB: null});
+    };
 
     render() {
-        let {roleA, visibleRoleB} = this.state;
+        let {roleA, roleB, visibleRoleB, renderBlock, loader} = this.state;
 
         return (
             <>
-                {this.state.loader ?
-                    <Loader/>
+                {loader
+                    ?
+                        <Loader/>
                     :
-                    <SelectedRole
-                        disabled={visibleRoleB}
-                        selected={roleA}
-                        handlerSelectHero={this.handlerSelectHero}
-                        handlerVisibleRoleB={this.handlerVisibleRoleB}
-                    />}
+                        renderBlock === 'selectedRole'
+                            ?
+                                <SelectedRole
+                                    disabled={visibleRoleB}
+                                    selectedA={roleA}
+                                    selectedB={roleB}
+                                    handlerSelectHero={this.handlerSelectHero}
+                                    handlerButtonClickA={this.handlerButtonClickA}
+                                    handlerButtonClickB={this.handlerButtonClickB}
+                                />
+                            :
+                                <PlayGame
+                                    roleA={roleA}
+                                    roleB={roleB}
+                                    handlerClearComponent={this.handlerClearComponent}
+                                />
+                }
             </>
         )
     }

@@ -1,10 +1,9 @@
 import React from 'react';
 
 export default function Footer(p) {
-    console.log(p);
     return (
         <footer>
-            <button onClick={p.selected !== null && p.handlerVisibleRoleB}>{p.footerText}</button>
+            <button onClick={p.selected !== null ? p.handlerButtonClick : undefined} className={`${p.selected === null ? 'disabled' : ''}`}>{p.footerText}</button>
         </footer>
     )
 }

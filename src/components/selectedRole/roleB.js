@@ -8,7 +8,7 @@ export default function RoleB(p) {
     return (
         <div className={`role__column ${p.disabled === null ? 'disabled' : ''}`}>
             <Header {...p}/>
-            <SelectHero handlerSelectHero={p.handlerSelectHero} role='roleB'/>
+            <SelectHero handlerSelectHero={p.handlerSelectHero} roleIs='roleB' selected={p.selected}/>
             <Footer {...p}/>
         </div>
     )
