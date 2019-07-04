@@ -45,9 +45,9 @@ export default function Cort(p) {
                 </span>
             </header>
             <main>
-                {p.whoWin === 'together' && <span className="who-win">together win</span>}
-                {p.whoWin === 'playerOne' && <span className="who-win">You win</span>}
-                {p.whoWin === 'playerTwo' && <span className="who-win">You lose</span>}
+                {p.whoWin === 'together' && <span className="who-win tada animated">Equally</span>}
+                {p.whoWin === 'playerOne' && <span className="who-win tada animated">You win</span>}
+                {p.whoWin === 'playerTwo' && <span className="who-win tada animated">You lose</span>}
 
                 {p.visibleIconLeft === 'rock' && <div className="p-left slideOutRight animated"><span>{rock}</span></div>}
                 {p.visibleIconLeft === 'paper' && <div className="p-left slideOutRight animated"><span>{paper}</span></div>}

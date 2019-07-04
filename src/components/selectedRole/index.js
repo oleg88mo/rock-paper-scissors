@@ -7,14 +7,14 @@ export default function SelectedRole(p) {
     return (
         <div className="role">
             <RoleA
-                headerText="111"
+                headerText="Choose your role"
                 footerText="Select player 2"
                 selected={p.selectedA}
                 handlerSelectHero={p.handlerSelectHero}
                 handlerButtonClick={p.handlerButtonClickA}
             />
             <RoleB
-                headerText="222"
+                headerText="Choose the opponent's role"
                 footerText="Play"
                 disabled={p.disabled}
                 selected={p.selectedB}

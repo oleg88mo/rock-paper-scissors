@@ -255,9 +255,6 @@ button {
             transform: translate3d(10%, 0, 0);
           }
         }
-        .slideOutRight {
-          animation-name: slideOutRight;
-        }
         @keyframes slideOutLeft {
           from {
             visibility: hidden;
@@ -267,6 +264,35 @@ button {
             visibility: visible;
             transform: translate3d(-10%, 0, 0);
           }
+        }
+        @keyframes tada {
+          from {
+            transform: scale3d(1, 1, 1);
+          }
+          10%,
+          20% {
+            transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+          }
+          30%,
+          50%,
+          70%,
+          90% {
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+          }
+          40%,
+          60%,
+          80% {
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+          }
+          to {
+            transform: scale3d(1, 1, 1);
+          }
+        }
+        .tada {
+          animation-name: tada;
+        }
+        .slideOutRight {
+          animation-name: slideOutRight;
         }
         .slideOutLeft {
           animation-name: slideOutLeft;
@@ -414,3 +440,80 @@ button {
     right: 0;
   }
 }
+
+@media only screen and (max-width: '992px') {
+  .role {
+    height: calc(100% - 100px);
+    padding: 15px 0;
+    display: block;
+    &__column {
+      margin: 20px 30px;
+      height: 50%;
+      width: calc(100% - 60px);
+    }
+  }
+  .role__column .list-hero .row {
+    justify-content: center;
+    .col {
+      width: 65%;
+    }
+  }
+  .play-game {
+    height: calc(100% - 40px);
+    padding: 20px 0;
+    h1 {
+      font-size: 23px;
+      margin: 0;
+    }
+    .cort {
+      width: calc(100% - 50px);
+      padding: 0 25px;
+      height: calc(100% - 70px);
+      display: block;
+      .player-container {
+        width: calc(100% - 40px);
+        margin: 15px 0;
+        button {
+          width: calc(33.333% - 10px);
+          padding: 15px 0 0;
+          margin: 0 5px 0;
+          svg {
+            height: 70px;
+          }
+        }
+        &.disabled {
+          span {
+            display: none;
+          }
+        }
+      }
+      .cort-container {
+        width: calc(100% - 40px);
+        margin: 0;
+        header span {
+          font-size: 50px;
+        }
+        main {
+          margin: 15px 0;
+          .p-left span, .p-right span {
+            padding: 2px 6px 0;
+            svg {
+              height: 115px;
+              margin-bottom: -25px;
+            }
+          }
+          .loader-container {
+            transform: translate(-30px, 12px);
+          }
+          .who-win {
+            top: 125px;
+            margin-left: -29px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+

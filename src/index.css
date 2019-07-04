@@ -197,8 +197,6 @@ button {
   to {
     visibility: visible;
     transform: translate3d(10%, 0, 0); } }
-        .play-game .cort .cort-container main .slideOutRight {
-          animation-name: slideOutRight; }
 @keyframes slideOutLeft {
   from {
     visibility: hidden;
@@ -206,6 +204,27 @@ button {
   to {
     visibility: visible;
     transform: translate3d(-10%, 0, 0); } }
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1); }
+  10%,
+          20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); }
+  30%,
+          50%,
+          70%,
+          90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%,
+          60%,
+          80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  to {
+    transform: scale3d(1, 1, 1); } }
+        .play-game .cort .cort-container main .tada {
+          animation-name: tada; }
+        .play-game .cort .cort-container main .slideOutRight {
+          animation-name: slideOutRight; }
         .play-game .cort .cort-container main .slideOutLeft {
           animation-name: slideOutLeft; }
         .play-game .cort .cort-container main .animated {
@@ -315,5 +334,60 @@ button {
     right: 10%; }
   100% {
     right: 0; } }
+@media only screen and (max-width: 992px) {
+  .role {
+    height: calc(100% - 100px);
+    padding: 15px 0;
+    display: block; }
+    .role__column {
+      margin: 20px 30px;
+      height: 50%;
+      width: calc(100% - 60px); }
+
+  .role__column .list-hero .row {
+    justify-content: center; }
+    .role__column .list-hero .row .col {
+      width: 65%; }
+
+  .play-game {
+    height: calc(100% - 40px);
+    padding: 20px 0; }
+    .play-game h1 {
+      font-size: 23px;
+      margin: 0; }
+    .play-game .cort {
+      width: calc(100% - 50px);
+      padding: 0 25px;
+      height: calc(100% - 70px);
+      display: block; }
+      .play-game .cort .player-container {
+        width: calc(100% - 40px);
+        margin: 15px 0; }
+        .play-game .cort .player-container button {
+          width: calc(33.333% - 10px);
+          padding: 15px 0 0;
+          margin: 0 5px 0; }
+          .play-game .cort .player-container button svg {
+            height: 70px; }
+        .play-game .cort .player-container.disabled span {
+          display: none; }
+      .play-game .cort .cort-container {
+        width: calc(100% - 40px);
+        margin: 0; }
+        .play-game .cort .cort-container header span {
+          font-size: 50px; }
+        .play-game .cort .cort-container main {
+          margin: 15px 0; }
+          .play-game .cort .cort-container main .p-left span, .play-game .cort .cort-container main .p-right span {
+            padding: 2px 6px 0; }
+            .play-game .cort .cort-container main .p-left span svg, .play-game .cort .cort-container main .p-right span svg {
+              height: 115px;
+              margin-bottom: -25px; }
+          .play-game .cort .cort-container main .loader-container {
+            transform: translate(-30px, 12px); }
+          .play-game .cort .cort-container main .who-win {
+            top: 125px;
+            margin-left: -29px;
+            font-size: 18px; } }
 
 /*# sourceMappingURL=index.css.map */
