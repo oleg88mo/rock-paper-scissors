@@ -1,4 +1,4 @@
-## Rock~Paper~Scissors
+## Rock-Paper-Scissors
 
 1) In first screen you must choose your player and choose opponent player. 
 
