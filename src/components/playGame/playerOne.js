@@ -6,9 +6,11 @@ export default function PlayerOne(p) {
         <div className={`player-container ${p.disabledLeft ? 'disabled' : ''}`}>
            <span>Choose option</span>
 
-            <button onClick={()=> p.handlerOptionPlayerOne('rock')}>{rock}</button>
-            <button onClick={()=> p.handlerOptionPlayerOne('paper')}>{paper}</button>
-            <button onClick={()=> p.handlerOptionPlayerOne('scissors')}>{scissors}</button>
+            <section>
+                <button onClick={()=> p.handlerOptionPlayerOne('rock')}>{rock}</button>
+                <button onClick={()=> p.handlerOptionPlayerOne('paper')}>{paper}</button>
+                <button onClick={()=> p.handlerOptionPlayerOne('scissors')}>{scissors}</button>
+            </section>
         </div>
     )
 }

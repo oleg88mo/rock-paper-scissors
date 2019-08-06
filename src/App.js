@@ -42,7 +42,7 @@ class App extends Component {
 
     handlerClearComponent = () => {
         this.loaderProgress(false, 'selectedRole');
-        this.setState({roleA: null, roleB: null});
+        this.setState({roleA: null, roleB: null, visibleRoleB: null});
     };
 
     render() {
